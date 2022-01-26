@@ -3,6 +3,10 @@ import Layout from '../components/Layout'
 import styles from '../styles/Home.module.css'
 import React from 'react'
 import CSS from 'csstype';
+import About from '../components/index/About';
+import Projects from '../components/index/Projects';
+import CurriculumVitae from '../components/index/CurriculumVitae';
+import Contact from '../components/index/Contact';
 
 interface StarSettings {
   x: Number,
@@ -20,7 +24,10 @@ const Home: NextPage = () => {
           <Star key={`star_${i}`} />
         )}
       </div>
-
+      <About/>
+      <Projects/>
+      <CurriculumVitae/>
+      <Contact/>
     </Layout>
   )
 }

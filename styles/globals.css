@@ -9,6 +9,7 @@ body {
   --darkGreen: #07393C;
   --green: #2C666E;
   --blue: #90DDF0;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -18,4 +19,19 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+}
+
+section.home-section {
+  width: 100vw;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--myWhite);
+    padding: 3ch 5ch;
+    min-height: calc(100vh - 125px);
 }

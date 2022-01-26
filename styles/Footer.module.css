@@ -1,0 +1,11 @@
+.Footer {
+    height: 125px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--darkGreen);
+    color: var(--myWhite);
+
+    display: grid;
+    place-items: center;
+}

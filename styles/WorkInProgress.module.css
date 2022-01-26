@@ -1,0 +1,52 @@
+.page {
+    background-color: var(--myWhite);
+    position: absolute;
+    inset: 0;
+
+    display: grid;
+    place-items: center;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero>h1 {
+    font-weight: 900;
+}
+
+.hero>h2 {
+    font-weight: 200;
+}
+
+.hero>h3 {
+    font-weight: 300;
+}
+
+.sideRevealBox {
+    position: relative;
+    width: 200px;
+    height: 45px;
+}
+
+.sideRevealBox>h3 {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 25%;
+    right: 0;
+    left: 0;
+}
+
+.sideRevealCover {
+    z-index: 3;
+    background-color: var(--myWhite);
+    height: 45px;
+    width: 100%;
+    position: absolute;
+    top: 25%;
+    right: 0;
+    left: 0;
+}
