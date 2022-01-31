@@ -17,6 +17,11 @@
         color: var(--myWhite);
         cursor: pointer;
 
+        &:nth-child(2n + 1) {
+            background-color: var(--blue);
+            color: var(--green);
+        }
+
         &#projectJuanitor::after {
 
             background-image: url("../public/images/Juanitor-main.png");
