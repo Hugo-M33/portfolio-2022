@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import WorkInProgress from '../components/WorkInProgress';
 import type { AppProps } from 'next/app'
 
-const MAINTENANCE = true;
+const MAINTENANCE = false;
 function MyApp({ Component, pageProps }: AppProps) {
   return MAINTENANCE ? <WorkInProgress /> : <Component {...pageProps} />;
 }

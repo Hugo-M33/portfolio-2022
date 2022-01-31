@@ -1,5 +1,6 @@
 import React from 'react'
-import styles from '../../styles/Projects.module.css'
+import styles from '../../styles/Projects.module.scss'
+import { useRouter } from 'next/router'
 
 interface ProjectProps {
     project: ProjectData;
@@ -7,21 +8,25 @@ interface ProjectProps {
 
 interface ProjectData { 
     title: String,
-    desc: String
+    desc: String,
+    customID: String,
 }
 
 const projects: ProjectData[] = [
     {
         title: "Juanitor",
-        desc: "Création d'une application de suivi des marchés de la cryptomonnaie, ainsi que de gestion automatique des investissements. Réalisé en binôme, avec un backend Java, une API express.JS et une application web React.JS"
+        desc: "Création d'une application de suivi des marchés de la cryptomonnaie, ainsi que de gestion automatique des investissements. Réalisé en binôme, avec un backend Java, une API express.JS et une application web React.JS",
+        customID: "Juanitor"
     }, 
     {
         title: "Marianne Alliot",
-        desc: "Création d'un site vitrine pour une artiste de la Rochelle, créé avec gatsbyJS ainsi que le CMS Wordpress pour la gestion des images"
+        desc: "Création d'un site vitrine pour une artiste de la Rochelle, créé avec gatsbyJS ainsi que le CMS Wordpress pour la gestion des images",
+        customID: "MA"
     }, 
     {
         title: "IMDB Symfony",
-        desc: "Création d'une copie allégée du site IMDB, utilisant une base de donnée MariaDB et l'ORM Doctrine."
+        desc: "Création d'une copie allégée du site IMDB, utilisant une base de donnée MariaDB et l'ORM Doctrine.",
+        customID: "Symfony"
     }
 ];
 
@@ -35,8 +40,9 @@ const Projects: React.FC = () => {
 }
 
 const Project: React.FC<ProjectProps> = ({project}) => {
+    const router = useRouter();
     return (
-        <div>
+        <div className={styles.projectBanner} id={styles[`project${project.customID}`]} onClick={() => router.push(`project/${project.customID}`)}>
             <h1>{project.title}</h1>
             <p>{project.desc}</p>
         </div>

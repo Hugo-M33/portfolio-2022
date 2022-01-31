@@ -1,0 +1,72 @@
+.projectsSection {
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--myWhite);
+    padding: 3ch 5ch;
+    min-height: calc(100vh - 125px);
+
+    .projectBanner {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 2.5%;
+        background-color: var(--green);
+        position: relative;
+        color: var(--myWhite);
+        cursor: pointer;
+
+        &#projectJuanitor::after {
+
+            background-image: url("../public/images/Juanitor-main.png");
+        }
+        &#projectMA::after {
+
+            background-image: url("../public/images/MA-main.jpeg");
+        }
+        &#projectSymfony::after {
+
+            background-image: url("../public/images/Symfony-main.png");
+        }
+
+        > h1 {
+            padding-left: 5px;
+            box-shadow: inset 0px 0px 0px 0px var(--myWhite);
+            transition: all 0.4s ease-out;
+        }
+
+        > p {
+            opacity: 1;
+            transition: all 0.4s ease-out;
+        }
+
+        &::after {
+            content: "";
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transition: all 0.25s ease-out;
+            z-index: 0;
+
+            
+        }
+
+        &:hover {
+            &::after {
+                opacity: 0.15;
+            }
+            > h1 {
+                box-shadow: inset 25ch 0px 0px 0px var(--myWhite);
+                color: var(--myBlack);
+            }
+            > p {
+                opacity: 0;
+            }
+        }
+    }
+}
