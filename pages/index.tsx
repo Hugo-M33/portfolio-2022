@@ -1,7 +1,7 @@
-import type { NextPage } from 'next'
+import type { NextPageWithLayout } from './_app'
 import Layout from '../components/Layout'
 import styles from '../styles/Home.module.css'
-import React from 'react'
+import React, { ReactElement } from 'react'
 import CSS from 'csstype';
 import About from '../components/index/About';
 import Projects from '../components/index/Projects';
@@ -15,9 +15,9 @@ interface StarSettings {
   size: Number
 }
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
   return (
-    <Layout>
+    <>
       <div className={styles.blurryGlass} ><h1>Photo du bg (moi)</h1></div>
       <div className={styles.skyBg}>
         {[...Array(100)].map((x, i) =>
@@ -28,6 +28,14 @@ const Home: NextPage = () => {
       <Projects/>
       <CurriculumVitae/>
       <Contact/>
+    </>
+  )
+}
+
+Home.getLayout = (page: ReactElement) => {
+  return (
+    <Layout>
+      {page}
     </Layout>
   )
 }
