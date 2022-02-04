@@ -14,7 +14,7 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout
 }
 
-const {MAINTENANCE} = process.env;
+const MAINTENANCE = process.env.MAINTENANCE === "true";
 function MyApp({ Component, pageProps, router }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page)
 
