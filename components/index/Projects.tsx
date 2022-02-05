@@ -3,6 +3,7 @@ import styles from '../../styles/Projects.module.scss'
 import { useRouter } from 'next/router'
 import { InView } from "react-intersection-observer"
 import { Transition } from '@headlessui/react'
+import SlideSectionTitle from '../SlideSectionTitle'
 
 interface ProjectProps {
     project: ProjectData;
@@ -35,27 +36,7 @@ const projects: ProjectData[] = [
 const Projects: React.FC = () => {
     return (
         <section className="snap-start w-screen h-screen relative bg-gradient-to-r from-blue-700 to-indigo-700" id="projects">
-            <InView>
-                {({ inView, ref, entry }) => (
-                    <div ref={ref} className="absolute top-0 h-20 text-3xl w-screen h-fit flex items-end py-4 px-4">
-                            <Transition
-                                ref={ref}
-                                as="h2"
-                                className=" font-bold text-3xl text-white"
-                                appear={true}
-                                show={inView}
-                                enter="transition duration-500 delay-300 ease-out"
-                                leave="transition duration-500 delay-300 ease-out"
-                                enterFrom="transform -translate-x-full opacity-0"
-                                enterTo="transform  translate-x-0 opacity-100"
-                                entered="transform translate-y-0 opacity-100"
-                                leaveFrom="opacity-100"
-                                leaveTo="opacity-0">Projects
-                                </Transition>
-                    </div>
-                )
-                }
-            </InView>
+            <SlideSectionTitle>Projects</SlideSectionTitle>
             <div className="w-full px-8 flex flex-col justify-center box-border absolute top-1/2 transform -translate-y-1/2">{projects.map((p, i) => <Project project={p} key={`project${i}`} />)}</div>
         </section>
     )

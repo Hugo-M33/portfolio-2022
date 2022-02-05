@@ -3,7 +3,7 @@ import styles from '../styles/Footer.module.css'
 
 const Footer = () => {
     return (
-        <footer className={styles.Footer}>
+        <footer className="sticky">
             <h6>© Hugo Martin 2022</h6>
         </footer>
     )

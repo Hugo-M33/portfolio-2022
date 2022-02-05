@@ -3,18 +3,18 @@ import {MouseEvent} from "react"
 import styles from "../styles/SmallComponents.module.scss"
 
 interface ButtonProps {
-    style?: {}
+    additionalClasses?: String
 }
 
 
-const BackButton: React.FC<ButtonProps> = ({style}) => {
+const BackButton: React.FC<ButtonProps> = ({additionalClasses}) => {
     const router = useRouter();
     const handleBack = (e: MouseEvent) => {
         e.preventDefault();
         router.back();
     }
     return (
-        <button className={styles.backButton} style={style} type="button" onClick={handleBack}>Back</button>
+        <button className={`rounded-lg text-white bg-slate-800 hover:bg-slate-900 shadow-md hover:shadow-xl w-fit h-fit p-4 ${additionalClasses}`} type="button" onClick={handleBack}>Back</button>
     )
 }
 

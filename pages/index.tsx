@@ -45,7 +45,7 @@ const Home: NextPageWithLayout = () => {
             enterTo="transform translate-x-0 opacity-100"
             entered="transform translate-x-0 opacity-100"
             className={` self-start text-white text-6xl  font-normal select-none`}
-            as="h1">I'm Hugo
+            as="h1">I&apos;m Hugo
 
 
           </Transition>

@@ -15,7 +15,7 @@ const Layout: React.FC = ({children}) => {
             >
         {children}
         </AnimatePresence>
-        {MAINTENANCE ? <></> : <Footer/>}
+        {/* {MAINTENANCE ? <></> : <Footer/>} */}
     </>
   )
 }
