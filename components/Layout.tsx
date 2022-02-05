@@ -3,10 +3,11 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import {AnimatePresence} from 'framer-motion';
 
+const MAINTENANCE = process.env.MAINTENANCE === "true";
 const Layout: React.FC = ({children}) => {
   return (
     <>
-        <Navbar />
+        {MAINTENANCE ? <></> : <Navbar />}
         <AnimatePresence
                 exitBeforeEnter
                 initial={false}
@@ -14,7 +15,7 @@ const Layout: React.FC = ({children}) => {
             >
         {children}
         </AnimatePresence>
-        <Footer/>
+        {MAINTENANCE ? <></> : <Footer/>}
     </>
   )
 }

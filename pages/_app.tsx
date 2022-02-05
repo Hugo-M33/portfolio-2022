@@ -20,11 +20,7 @@ function MyApp({ Component, pageProps, router }: AppPropsWithLayout) {
 
   return (
     <AnimatePresence exitBeforeEnter>
-      {MAINTENANCE ?
-        <WorkInProgress />
-        :
-
-        getLayout(
+        {getLayout(
           <motion.div key={router.route} transition={{ duration: 3 }} initial="pageInitial" animate="pageAnimate" exit="pageExit" variants={{
             pageInitial: {
               opacity: 0,

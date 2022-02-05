@@ -32,7 +32,7 @@ const Contact: React.FC<{}> = () => {
     });
 
     return (
-        <section id="contact" className={"home-section"}>
+        <section id="contact" className="bg-gray-700 h-screen w-screen snap-start">
             <h1 className="sectionTitle">Contact</h1>
             <form onSubmit={formik.handleSubmit} className={styles.ContactForm}>
                 <label htmlFor="name">Nom</label>
