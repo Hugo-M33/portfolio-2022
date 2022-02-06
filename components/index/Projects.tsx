@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from '../../styles/Projects.module.scss'
 import { useRouter } from 'next/router'
 import { InView } from "react-intersection-observer"
 import { Transition } from '@headlessui/react'
 import SlideSectionTitle from '../SlideSectionTitle'
+import { ScrollingContext } from '../../pages'
 
 interface ProjectProps {
     project: ProjectData;
@@ -34,8 +35,9 @@ const projects: ProjectData[] = [
 ];
 
 const Projects: React.FC = () => {
+    const scrolling = useContext(ScrollingContext)
     return (
-        <section className="snap-start w-screen h-screen relative bg-gradient-to-r from-blue-700 to-indigo-700" id="projects">
+        <section className={`${!scrolling && "snap-start"} w-screen h-screen relative bg-gradient-to-r from-blue-700 to-indigo-700`} id="projects">
             <SlideSectionTitle>Projects</SlideSectionTitle>
             <div className="w-full px-8 flex flex-col justify-center box-border absolute top-1/2 transform -translate-y-1/2">{projects.map((p, i) => <Project project={p} key={`project${i}`} />)}</div>
         </section>

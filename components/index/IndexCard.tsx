@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Transition } from '@headlessui/react'
 import {scroller} from "react-scroll"
+import { ScrollingContext } from '../../pages'
 
 
 const IndexCard: React.FC<{}> = () => {
-    const scrOpts = {smooth: "easeOutQuint", duration:100}
+    const scrOpts = {smooth: "easeInOutQuad", duration:1000, containerId: "HomeScrollContainer"}
+    const scrolling = useContext(ScrollingContext)
     return (
         <Transition
         appear={true}
