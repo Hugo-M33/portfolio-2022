@@ -22,6 +22,8 @@ interface StarSettings {
 
 export const ScrollingContext = React.createContext(false);
 
+
+
 const MAINTENANCE = process.env.MAINTENANCE === "true";
 const Home: NextPageWithLayout = () => {
   const [scrolling, setScrolling] = useState<boolean>(false);

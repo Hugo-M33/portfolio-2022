@@ -48,7 +48,7 @@ const Contact: React.FC<{}> = () => {
                     onChange={formik.handleChange}
                     value={formik.values.name}
                     required
-                    className="invalid:border-red-700 invalid:border-2 rounded-lg bg-slate-900 text-white border-gray-900"
+                    className="autofill:!bg-slate-800 invalid:border-red-700 invalid:border-2 rounded-lg bg-slate-900 text-white border-gray-900"
                 />
                 </div>
                 <div className="flex flex-col">
@@ -90,7 +90,7 @@ const Contact: React.FC<{}> = () => {
                         value={formik.values.message}
                         required
                         minLength={30}
-                        className="invalid:border-red-700 invalid:border-2 rounded-lg bg-slate-900 text-white border-gray-900"
+                        className="invalid:border-red-700 invalid:border-2 rounded-lg bg-slate-900 text-white border-gray-900 "
                     />
                 </div>
                 <button type="submit" className="bg-slate-800 hover:bg-slate-600 px-4 py-2 mt-4 text-white rounded-xl shadow-md hover:shadow-xl transition-[background-color] duration-500 transition-shadow self-end">Envoyer</button>
