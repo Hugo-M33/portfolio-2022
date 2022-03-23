@@ -25,6 +25,7 @@ ProjectPage.getLayout = (page: ReactElement) => {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+    
     const pid = context.query.pid
     const res = await fetch(`http://localhost:3000/api/project/${pid}`)
     let data = {}

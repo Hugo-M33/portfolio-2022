@@ -4,15 +4,16 @@ import type { AppProps } from 'next/app'
 import { motion, AnimatePresence } from "framer-motion"
 
 import type { ReactElement, ReactNode } from 'react'
-import type { NextPage } from 'next'
+import type { GetServerSidePropsContext, NextPage } from 'next'
 import React from 'react';
 
 export type NextPageWithLayout = NextPage & {
-  getLayout?: (page: ReactElement) => ReactNode
+  getLayout?: (page: ReactElement) => ReactNode,
+  data?: {}
 }
 
 type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout
+  Component: NextPageWithLayout,
 }
 
 export const ProjectsContext = React.createContext({});
@@ -34,7 +35,7 @@ function MyApp({ Component, pageProps, router }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page)
 
   return (
-    <ProjectsContext.Provider value={EXISTING_PROJECTS}>
+    
       <AnimatePresence>
           {getLayout(
             <motion.div key={router.route} transition={{ duration: .5 }} initial="pageInitial" animate="pageAnimate" exit="pageExit" variants={{
@@ -55,7 +56,6 @@ function MyApp({ Component, pageProps, router }: AppPropsWithLayout) {
             </motion.div>
           )}
       </AnimatePresence>
-    </ProjectsContext.Provider>
   )
 
 }

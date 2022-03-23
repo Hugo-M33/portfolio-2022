@@ -1,0 +1,15 @@
+    {
+        "title": "Juanitor",
+        "desc": "Création d'une application de suivi des marchés de la cryptomonnaie, ainsi que de gestion automatique des investissements. Réalisé en binôme, avec un backend Java, une API express.JS et une application web React.JS",
+        "customID": "Juanitor"
+    },
+    {
+        "title": "Marianne Alliot",
+        "desc": "Création d'un site vitrine pour une artiste de la Rochelle, créé avec gatsbyJS ainsi que le CMS Wordpress pour la gestion des images",
+        "customID": "MA"
+    },
+    {
+        "title": "IMDB Symfony",
+        "desc": "Création d'une copie allégée du site IMDB, utilisant une base de donnée MariaDB et l'ORM Doctrine.",
+        "customID": "Symfony"
+    }

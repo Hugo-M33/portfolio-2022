@@ -13,19 +13,12 @@ import { Transition } from '@headlessui/react'
 import MaintenanceCard from '../components/index/MaintenanceCard';
 import Scroller from "react-scroll";
 
-interface StarSettings {
-  x: Number,
-  y: Number,
-  rotation: Number,
-  size: Number
-}
-
 export const ScrollingContext = React.createContext(false);
 
 
 
 const MAINTENANCE = process.env.MAINTENANCE === "true";
-const Home: NextPageWithLayout = () => {
+const Home: NextPageWithLayout = ({data, children} : {data: {}, children: any})  => {
   const [scrolling, setScrolling] = useState<boolean>(false);
   
   
@@ -81,7 +74,7 @@ const Home: NextPageWithLayout = () => {
       </div>
       {MAINTENANCE ? <></> : <>
       <About />
-      <Projects />
+      <Projects projects={data.projects}/>
       <CurriculumVitae />
       <Contact /></>}
       </ScrollingContext.Provider>
@@ -97,27 +90,26 @@ Home.getLayout = (page: ReactElement) => {
   )
 }
 
-const Star: React.FC = () => {
-  const [settings] = React.useState<StarSettings>({
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    rotation: Math.random() * 360,
-    size: 5 + Math.random() * 15
-  });
-
-  const starStyle: CSS.Properties = {
-    backgroundColor: '#FFFFFF',
-    position: 'absolute',
-    top: `${settings.y}%`,
-    left: `${settings.x}%`,
-    transform: `rotate(${settings.rotation}deg)`,
-    width: `${settings.size}px`,
-    height: `${settings.size}px`,
-    zIndex: 2
-  }
-  return (
-    <div style={starStyle} />
-  )
-}
-
 export default Home
+
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const res = await fetch(`http://localhost:3000/api/projects`)
+  const projects = await res.json();
+  let data = {projects}
+  if (res.status === 200) {
+      return {
+          props: {
+              data,
+          },
+      }
+
+  } else {
+      console.log
+      return {
+          props: {
+              data,
+          },
+      }
+  }
+}

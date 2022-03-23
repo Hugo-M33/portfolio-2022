@@ -5,6 +5,7 @@ import { InView } from "react-intersection-observer"
 import { Transition } from '@headlessui/react'
 import SlideSectionTitle from '../SlideSectionTitle'
 import { ScrollingContext } from '../../pages'
+import { GetServerSidePropsContext } from 'next'
 
 interface ProjectProps {
     project: ProjectData;
@@ -18,23 +19,23 @@ interface ProjectData {
 
 const projects: ProjectData[] = [
     {
-        title: "Juanitor",
-        desc: "Création d'une application de suivi des marchés de la cryptomonnaie, ainsi que de gestion automatique des investissements. Réalisé en binôme, avec un backend Java, une API express.JS et une application web React.JS",
-        customID: "Juanitor"
+        "title": "Juanitor",
+        "desc": "Création d'une application de suivi des marchés de la cryptomonnaie, ainsi que de gestion automatique des investissements. Réalisé en binôme, avec un backend Java, une API express.JS et une application web React.JS",
+        "customID": "Juanitor"
     },
     {
-        title: "Marianne Alliot",
-        desc: "Création d'un site vitrine pour une artiste de la Rochelle, créé avec gatsbyJS ainsi que le CMS Wordpress pour la gestion des images",
-        customID: "MA"
+        "title": "Marianne Alliot",
+        "desc": "Création d'un site vitrine pour une artiste de la Rochelle, créé avec gatsbyJS ainsi que le CMS Wordpress pour la gestion des images",
+        "customID": "MA"
     },
     {
-        title: "IMDB Symfony",
-        desc: "Création d'une copie allégée du site IMDB, utilisant une base de donnée MariaDB et l'ORM Doctrine.",
-        customID: "Symfony"
+        "title": "IMDB Symfony",
+        "desc": "Création d'une copie allégée du site IMDB, utilisant une base de donnée MariaDB et l'ORM Doctrine.",
+        "customID": "Symfony"
     }
 ];
 
-const Projects: React.FC = () => {
+const Projects: React.FC<{projects: []}> = ({projects}) => {
     const scrolling = useContext(ScrollingContext)
     return (
         <section className={`${!scrolling && "snap-start"} w-screen h-screen relative bg-gradient-to-r from-blue-700 to-indigo-700`} id="projects">
@@ -43,6 +44,8 @@ const Projects: React.FC = () => {
         </section>
     )
 }
+
+
 
 const Project: React.FC<ProjectProps> = ({ project }) => {
     const router = useRouter();
