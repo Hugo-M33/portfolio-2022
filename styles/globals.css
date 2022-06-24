@@ -4,38 +4,17 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: Roboto, Oxygen,
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  --myBlack: #0A090C;
-  --myWhite: #F0EDEE;
-  --darkGreen: #07393C;
-  --green: #2C666E;
-  --blue: #90DDF0;
-  scroll-behavior: smooth;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
-}
-
-.sectionTitle {
-  font-size: 2rem;
-}
-
-section.home-section {
-  width: 100vw;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--myWhite);
-    padding: 3ch 5ch;
-    min-height: calc(100vh - 125px);
+    box-sizing: border-box;
 }

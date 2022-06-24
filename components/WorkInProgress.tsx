@@ -1,60 +1,24 @@
-import React from 'react'
-import styles from '../styles/WorkInProgress.module.css'
-import {motion } from "framer-motion";
-
-const titleVariants = {
-    "hidden": {
-        opacity: 0,
-        y: -50
-    },
-    "show": {
-        opacity: 1,
-        y: 0
-    }
-}
-
-const subtitleVariants = {
-    "hidden": {
-        opacity: 0,
-    },
-    "show": {
-        opacity: 1
-    }
-}
-
-const coverVariants = {
-    "hidden": {
-        width: "0%",
-        left: "50%",
-        right: "50%",
-        
-    },
-    "show": {
-        width: "100%",
-        left: 0,
-        right: 0,
-    }
-}
-
-const boxVariants = {
-    "start": {
-        y: 25
-    },
-    "end": {
-        y: -25
-    }
-}
+import React, {useEffect, useState} from 'react'
+import Head from "next/head";
 
 const WorkInProgress = () => {
+    const [dots, setDots] = useState("")
+
+    useEffect(() => {
+        const TO = setTimeout(() => setDots(prevState => {
+            if (prevState === "...") return ""
+            return prevState + "."
+        }), 1000)
+
+        return () => clearTimeout(TO)
+    }, [dots])
     return (
-        <main className={styles.page}>
-            <div className={styles.hero}>
-                <motion.h1 variants={titleVariants} initial="hidden" animate="show" >Hugo Martin</motion.h1>
-                <motion.h2 variants={subtitleVariants} initial="hidden" animate="show" transition={{delay: .3}}>Web Developer</motion.h2>
-                <motion.div className={styles.sideRevealBox} variants={boxVariants} initial="start" animate="end" transition={{repeat: Infinity, repeatType: "reverse", duration: 3, delay: 1}}>
-                    <motion.div className={styles.sideRevealCover} variants={coverVariants} initial="show" animate="hidden" transition={{delay: .6, duration: 1}}/>
-                    <h3>Work In Progress</h3>
-                </motion.div>
+        <main className={`h-screen w-screen bg-gray-600 grid place-items-center`}>
+            <Head>
+                <title>Hugo Martin - Portfolio</title>
+            </Head>
+            <div className={`text-left w-3/4`}>
+                <h1 className={`text-emerald-100 uppercase text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-extrabold`}>Work In Progress{dots}</h1>
             </div>
         </main>
     )
