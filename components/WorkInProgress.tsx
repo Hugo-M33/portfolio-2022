@@ -15,7 +15,7 @@ const WorkInProgress = () => {
         return () => clearTimeout(TO)
     }, [dots])
     return (
-        <main className={`h-screen w-screen bg-dark grid place-items-center`}>
+        <main className={`h-screen w-screen bg-dark-shades grid place-items-center`}>
             <Head>
                 <title>Hugo Martin - Portfolio</title>
             </Head>
